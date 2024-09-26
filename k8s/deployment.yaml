@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: frontend-app
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: frontend-app
   template:
     metadata:
       labels:
-        app: myapp
+        app: frontend-app
     spec:
       containers:
-      - name: myapp
-        image: <Image>
-        resources:
+      - name: frontend-app
+        image: nodejs:12.5.0
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: <Port>
+        - containerPort: 8080
